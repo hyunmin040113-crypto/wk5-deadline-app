@@ -99,7 +99,6 @@
 
 .topbar{position:relative}.topbar-home-title{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:10pt;color:#31413a;white-space:nowrap}.top-actions{margin-left:auto;justify-content:flex-end}
 /* Keep the deployed prototype in its mobile app frame even on desktop browsers. */
-@media (min-width: 851px) {
 @media (min-width: 431px) {
   body { background: #f4f5f1; }
   .app-shell { width: min(100%, 430px); min-height: 100dvh; margin: 0 auto; background: #fff; box-shadow: 0 0 36px #25332f12; }
@@ -107,15 +106,12 @@
   .app-layout { display: block; width: 100%; max-width: 430px; min-height: calc(100dvh - 55px); margin: 0; padding: 0 0 72px; }
   .side-nav, .simulator { display: none; }
   .main-content { width: 100%; max-width: none; min-height: calc(100dvh - 55px); border: 0; border-radius: 0; box-shadow: none; }
-  .mobile-page-head { display: flex; height: 50px; }
   .mobile-page-head { display: flex; height: 56px; }
   .main-content .mobile-page-head > button.mobile-back,
   .main-content .mobile-page-head > button.mobile-menu { appearance: none; width: 36px; height: 36px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: #738078; display: grid; place-items: center; }
   .page { padding: 24px 18px 28px; }
   .home-page { padding-top: 24px; }
   .greeting-row { min-height: 0; margin-bottom: 22px; }
-  .home-activity-tabs { grid-template-columns: 1fr; gap: 10px; }
-  .home-activity-tab { min-height: 96px; padding: 12px; }
   .home-headline { font-size: 30px; line-height: 1.42; letter-spacing: -1.1px; margin: 14px 0 8px; }
   .home-activity-tabs { grid-template-columns: minmax(0, 1fr); gap: 8px; }
   .home-activity-tab { position: relative; display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; grid-template-rows: 18px 20px 18px; align-items: center; gap: 0 9px; min-height: 76px; padding: 9px 10px; }
