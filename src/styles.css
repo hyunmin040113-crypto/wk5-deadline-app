@@ -133,7 +133,9 @@
   .return-page { padding-top: 24px; }
   .return-content-card { min-height: 112px; height: auto; padding: 10px; }
   .return-cover { width: 72px; height: 92px; }
-  .bottom-nav { position: fixed; left: 50%; width: min(100%, 430px); transform: translateX(-50%); }
-  .bottom-nav { height: 64px; padding: 0 9px; }
+  .bottom-nav { position: fixed; bottom: 0; left: 50%; right: auto; width: min(100%, 430px); height: 64px; transform: translateX(-50%); background: #fff; border-top: 1px solid #eaede8; display: flex; align-items: center; justify-content: space-around; padding: 0 9px; }
+  .bottom-nav button { flex: 1; min-width: 0; border: 0; background: none; color: #9aa39d; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 4px; font-size: 8px; }
+  .bottom-nav button.active { color: #3d644b; }
+  .bottom-nav button svg { width: 19px; height: 19px; }
   .flow-page { min-height: calc(100dvh - 127px); }
 }
