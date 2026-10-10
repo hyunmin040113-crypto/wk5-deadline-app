@@ -93,6 +93,106 @@
 .platform-page .page-title.no-back>div{width:100%}.platform-page .page-title h1{font-size:clamp(21px,6vw,29px);line-height:1.4;letter-spacing:-.8px}.platform-page .train-info{margin-left:11px;flex:1;min-width:0}.platform-page .train-info b,.platform-page .train-info span{display:grid;grid-template-columns:18px minmax(0,1fr);column-gap:8px;align-items:center;line-height:1.45}.platform-page .train-info b svg,.platform-page .train-info span svg{width:17px;height:17px;justify-self:center}.platform-page .train-info span svg{width:15px;height:15px}.platform-page .train-arrival{margin-left:8px;white-space:nowrap}
 @media(max-width:560px){.platform-page .page-title h1{font-size:clamp(21px,6.8vw,25px)}.platform-page .train-info{margin-left:7px}.platform-page .train-info b,.platform-page .train-info span{grid-template-columns:18px minmax(0,1fr);column-gap:5px}.platform-page .train-info b{font-size:8px}.platform-page .train-info span{font-size:8px}}
 
+/* Match the reference app header consistently across every screen. */
+@media (max-width: 850px) {
+  .topbar { display: none; }
+  .mobile-page-head {
+    position: sticky;
+    top: 0;
+    z-index: 8;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr) 40px;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    height: 66px;
+    padding: 0 18px;
+    border-bottom: 1px solid #eaede8;
+    background: #fff;
+    color: #23312e;
+    font-family: 'Gowun Dodum', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+  }
+  .main-content .mobile-page-head > button.mobile-back,
+  .main-content .mobile-page-head > button.mobile-menu {
+    appearance: none;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #7b8780;
+  }
+  .main-content .mobile-page-head > button.mobile-back { justify-self: start; }
+  .main-content .mobile-page-head > button.mobile-menu { justify-self: end; }
+  .mobile-page-head > span { justify-self: center; white-space: nowrap; }
+  .bottom-nav { height: 66px; }
+  .simulator.open { transform: translateX(0); }
+}
+
+@media (min-width: 431px) {
+  .topbar { display: none; }
+  .app-layout { min-height: 100dvh; padding-bottom: 66px; }
+  .main-content { min-height: 100dvh; }
+  .mobile-page-head { display: grid; }
+}
+
+@media (min-width: 851px) {
+  .mobile-page-head {
+    position: sticky;
+    top: 0;
+    z-index: 8;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr) 40px;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    height: 66px;
+    padding: 0 18px;
+    border-bottom: 1px solid #eaede8;
+    background: #fff;
+    color: #23312e;
+    font-family: 'Gowun Dodum', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+  }
+  .main-content .mobile-page-head > button.mobile-back,
+  .main-content .mobile-page-head > button.mobile-menu {
+    appearance: none;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #7b8780;
+  }
+  .main-content .mobile-page-head > button.mobile-back { justify-self: start; }
+  .main-content .mobile-page-head > button.mobile-menu { justify-self: end; }
+  .mobile-page-head > span { justify-self: center; white-space: nowrap; }
+}
+
+@media (max-width: 430px) {
+  .app-layout { padding-bottom: 66px; }
+  .main-content { min-height: 100dvh; }
+  .main-content > .page { scroll-margin-top: 66px; }
+}
+
+@media (max-width: 560px) {
+  body { min-width: 0; overflow-x: clip; }
+  html { overflow-x: clip; }
+}
+
 .book-deco-cover{display:block;overflow:hidden;background:#c6c4e8;color:#5a3e68}.book-deco-cover:before{display:none}.book-mockup-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.book-mockup-wash{position:absolute;inset:0;background:linear-gradient(180deg,#fff2 0%,#fff0 46%,#44334a33 100%)}.book-mockup-spine{position:absolute;left:7px;top:0;bottom:0;width:5px;background:#fff5;box-shadow:1px 0 #45364b30}.book-mockup-title{position:absolute;left:16px;right:8px;top:17%;display:grid;gap:7px;color:#684477;text-align:center;text-shadow:0 1px 0 #fff9}.book-mockup-title>b{font-family:'Gowun Dodum',sans-serif;font-size:clamp(12px,3.2vw,17px);font-weight:700;line-height:1.35;letter-spacing:-.6px}.book-mockup-title>small{font-family:'Gowun Dodum',sans-serif;font-size:7px;color:#61456d}
 
 .return-cover-art{position:relative;overflow:hidden;align-items:stretch;justify-content:flex-start;background:#d8d3e8;color:#694274}.return-mini-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.return-mini-shade{position:absolute;inset:0;background:linear-gradient(180deg,#fff3 0%,transparent 56%,#33443542 100%)}.return-cover-art>span{position:absolute;z-index:1;top:9px;left:3px;right:3px;text-align:center;color:#674075;font-size:7px;font-weight:700;line-height:1.15;letter-spacing:-.3px;text-shadow:0 1px #fff9}
