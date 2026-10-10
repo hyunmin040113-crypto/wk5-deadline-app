@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ArrowDownLeft, ArrowLeft, ArrowRight, BookOpen, Check, ChevronRight, CirclePause, Clock3, Film, History, Home, MapPin, MapPinned, Menu, Newspaper, Play, RotateCcw, Settings2, Sparkles, TrainFront, TrendingUp, UserRound, X } from 'lucide-react'
+import { ArrowDownLeft, ArrowLeft, ArrowRight, BookOpen, Check, ChevronRight, CirclePause, Clock3, Film, History, Home, MapPin, MapPinned, Menu, Newspaper, Play, Settings2, Sparkles, TrainFront, TrendingUp, UserRound, X } from 'lucide-react'
 
 type ActivityId = 'ebook' | 'movie' | 'news'
 type Activity = { id: ActivityId; title: string; service: string; detail: string; progress: string; icon: string; tone: string; kind: string }
@@ -73,14 +73,13 @@ export default function App() {
     if (step === 'home' && !scenarioStarted) { setRide('commute'); setChosen(null); setNotificationOpen(false); setScenarioStarted(true); setScenarioOpen(false); setNotice('출근 시나리오를 시작했어요. 홈에서 활동을 골라보세요.'); return }
     if (step === 'home') { setChosen(null); setNotificationOpen(true); setScenarioOpen(false); return }
     const route: Step[] = ['select', 'walk', 'platform', 'activity', 'approach', 'transfer', 'returnPoint', 'activity', 'complete']
-    const current = step === 'home' || step === 'complete' ? -1 : step === 'returnPoint' ? 6 : step === 'transfer' ? 5 : step === 'approach' ? 4 : step === 'activity' ? (savedRun ? 7 : 3) : route.indexOf(step)
+    const current = step === 'complete' ? -1 : step === 'returnPoint' ? 6 : step === 'transfer' ? 5 : step === 'approach' ? 4 : step === 'activity' ? (savedRun ? 7 : 3) : route.indexOf(step)
     const next = route[Math.min(current + 1, route.length - 1)]
     if (next === 'activity') { if (step === 'returnPoint') resumeActivity(); else { setChosen(ride === 'commute' ? 'ebook' : 'movie'); setActivityPreviousStep(step); setStep('activity') } }
     else if (next === 'complete') finishRide()
     else startScenarioAt(next)
   }
   const changeService = (activity: Activity, service: string) => { setActivities((items) => items.map((item) => item.id === activity.id ? { ...item, service } : item)); setSettingModal(null) }
-  const beginSavedRun = () => { if (!savedRun) return; setRide(savedRun.ride); setChosen(savedRun.activity); setStartKind(savedRun.startKind); setReturnPointPreviousStep('home'); setStep('returnPoint') }
   const elapsed = `${String(Math.floor(sessionSeconds / 60)).padStart(2, '0')}:${String(sessionSeconds % 60).padStart(2, '0')}`
 
   return <div className={`app-shell ${notificationOpen ? 'notification-active' : ''}`}>
@@ -119,7 +118,6 @@ function HomeScreen({ ride, logs, activities, onSelect, onHistory, onRoute }: { 
   const periodMessage = ride === 'commute' ? '좋은 아침이에요 출근길을 시작해볼까요?' : '어떤 활동하며 퇴근 시간을 보내볼까요?'
   const periodTime = ride === 'commute' ? '08:00' : '18:02'
   const routeDescription = ride === 'commute' ? '집에서 회사까지 · 약 45분' : '회사에서 집까지 · 약 50분'
-  const routeName = ride === 'commute' ? '회사 경로' : '집 경로'
   return <div className={`page home-page ${ride === 'commute' ? 'commute-home' : 'return-home'}`}><div className="greeting-row"><div><div className="eyebrow"><span className="live-dot"/> 10월 10일 토요일 <span className="greeting-sep">·</span> {periodTime}</div><h1 className="home-headline">{ride === 'commute' ? <>좋은 아침이에요<br/>출근길을 시작해볼까요?</> : periodMessage}</h1><p className="intro-copy">하고 싶은 활동을 고르면, 멈춘 자리에서도<br/>바로 다시 이어갈 수 있어요.</p></div></div>
     <div className="home-route-prompt"><div className="home-route-icon"><TrainFront size={17}/></div><div><span>오늘의 이동 경로</span><b>{routeDescription}</b></div><button onClick={onRoute}>목적지 재설정 <ChevronRight size={14}/></button></div>
     <div className="section-heading activity-section-heading"><div><span className="eyebrow muted">PICK YOUR ACTIVITY</span><h2>어떤 활동을 할까요?</h2></div><button className="text-button" onClick={onHistory}>기록 <ArrowRight size={15}/></button></div>
