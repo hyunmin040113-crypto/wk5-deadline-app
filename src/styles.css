@@ -98,3 +98,20 @@
 .return-cover-art{position:relative;overflow:hidden;align-items:stretch;justify-content:flex-start;background:#d8d3e8;color:#694274}.return-mini-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.return-mini-shade{position:absolute;inset:0;background:linear-gradient(180deg,#fff3 0%,transparent 56%,#33443542 100%)}.return-cover-art>span{position:absolute;z-index:1;top:9px;left:3px;right:3px;text-align:center;color:#674075;font-size:7px;font-weight:700;line-height:1.15;letter-spacing:-.3px;text-shadow:0 1px #fff9}
 
 .topbar{position:relative}.topbar-home-title{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:10pt;color:#31413a;white-space:nowrap}.top-actions{margin-left:auto;justify-content:flex-end}
+/* Keep the deployed prototype in its mobile app frame even on desktop browsers. */
+@media (min-width: 851px) {
+  body { background: #f4f5f1; }
+  .app-shell { width: min(100%, 430px); min-height: 100dvh; margin: 0 auto; background: #fff; box-shadow: 0 0 36px #25332f12; }
+  .topbar { width: 100%; max-width: 430px; height: 55px; padding: 0 17px; }
+  .app-layout { display: block; width: 100%; max-width: 430px; min-height: calc(100dvh - 55px); margin: 0; padding: 0 0 72px; }
+  .side-nav, .simulator { display: none; }
+  .main-content { width: 100%; max-width: none; min-height: calc(100dvh - 55px); border: 0; border-radius: 0; box-shadow: none; }
+  .mobile-page-head { display: flex; height: 50px; }
+  .page { padding: 24px 18px 28px; }
+  .home-page { padding-top: 24px; }
+  .greeting-row { min-height: 0; margin-bottom: 22px; }
+  .home-activity-tabs { grid-template-columns: 1fr; gap: 10px; }
+  .home-activity-tab { min-height: 96px; padding: 12px; }
+  .bottom-nav { position: fixed; left: 50%; width: min(100%, 430px); transform: translateX(-50%); }
+  .flow-page { min-height: calc(100dvh - 127px); }
+}
